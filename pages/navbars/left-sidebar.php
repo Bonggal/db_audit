@@ -31,7 +31,7 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">HEADER</li>
+            <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <!-- <li class="active"><a href="#"><i class="fa fa-list-alt"></i> <span>Link</span></a></li> -->
             <li class="treeview">
@@ -41,8 +41,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Database Access</a></li>
+                    <li><a href="#">Account Usage</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -52,8 +52,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">Database Tables</a></li>
+                    <li><a href="#">Database Views</a></li>
+                    <li><a href="#">Database Functions</a></li>
+                    <li><a href="#">Database Stored Procedures</a></li>
+                    <li><a href="#">Database Triggers</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -63,8 +66,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">DDL Activities</a></li>
+                    <li><a href="#">DDL Users</a></li>
+                    <li><a href="#">DDL Types</a></li>
+                    <li><a href="#">DDL Objects</a></li>
+
                 </ul>
             </li>
         </ul>
