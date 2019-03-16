@@ -1,7 +1,8 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
-<?php //include $path.'/query/q-db-tables.php'; ?>
+<?php $tableID = $_GET['table'];?>
+<?php include $path.'/query/database-object-query/q-db-tables-details.php'; ?>
 
 <div class="wrapper">
 
@@ -13,7 +14,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                [TABLE NAME]
+                Database Table: '<i><?php echo $row['ObjName']; ?></i>'
                 <small>Database Table Details</small>
             </h1>
             <ol class="breadcrumb">
@@ -34,11 +35,58 @@
                             <h3 class="box-title">Database Tables List</h3>
                         </div>
                         <div class="box-body">
-                            
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th style="width:35%">Object ID</th>
+                                                <td>: <?php echo $row['ObjID']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Object Type</th>
+                                                <td>: <?php echo $row['ObjType']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Table Name</th>
+                                                <td>: <?php echo $row['ObjName']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Object Schema</th>
+                                                <td>: <?php echo $row['ObjSchema']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Create Date</th>
+                                                <td>: <?php echo date('jS \of F Y - h:i:s A',time($row['CrDate'])); ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Last Modified Date</th>
+                                                <td>: <?php echo date('jS \of F Y - h:i:s A',time($row['ModDate'])); ?>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-header">
+                            <h3 class="box-title">Table Definition</h3>
+                        </div>
+                        <div class="box-body">
+                            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;font-weight: 600;">
+
+                                create view "Customer and Suppliers by City" AS
+                                SELECT City, CompanyName, ContactName, 'Customers' AS Relationship
+                                FROM Customers
+                                UNION SELECT City, CompanyName, ContactName, 'Suppliers'
+                                FROM Suppliers
+                                --ORDER BY City, CompanyName
+
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
 
         </section>
         <!-- /.content -->

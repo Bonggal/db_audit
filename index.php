@@ -61,7 +61,7 @@
                 <div class="col-xs-8">
                     <div class="box box-solid">
                         <div class="box-header">
-                            <h3 class="box-title">Recent DDL</h3>
+                            <h3 class="box-title">Top 5 Most Recent DDL Activities</h3>
                         </div>
                         <div class="box-body">
                             <table class="table table-bordered table-hover" height="340">

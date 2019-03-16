@@ -1,7 +1,7 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
-<?php include $path.'/query/q-db-tables.php'; ?>
+<?php include $path.'/query/database-object-query/q-db-tables.php'; ?>
 
 <div class="wrapper">
 
@@ -56,7 +56,7 @@
                                             <?php echo date('h:i:s A',strtotime($row['CrDate']))?>
                                         </td>
                                         <td>
-                                            <a href="/TA2/DBAudit/pages/database-object/db-tables-detail.php?table='abc'" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-object/db-tables-detail.php?table=<?php echo $row['ObjID'] ?>" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
