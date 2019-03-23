@@ -41,8 +41,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Database Access</a></li>
-                    <li><a href="#">Account Usage</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-access/database-access.php">Database Access</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-access/database-usage.php">Account Usage</a></li>
                 </ul>
             </li>
             <li class="treeview">
