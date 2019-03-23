@@ -25,17 +25,16 @@ $(function() {
     var accessChartData = {
         labels: label,
         datasets: [{
-                label: 'Succeed Access',
-                fillColor: 'rgba(60,141,188,0.9)',
-                strokeColor: 'rgba(60,141,188,0.8)',
-                pointColor: '#3b8bba',
-                pointStrokeColor: 'rgba(60,141,188,1)',
-                pointHighlightFill: '#fff',
-                pointHighlightStroke: 'rgba(60,141,188,1)',
-                data: data,
-                spanGaps: true
-            }
-        ]
+            label: 'Succeed Access',
+            fillColor: 'rgba(60,141,188,0.9)',
+            strokeColor: 'rgba(60,141,188,0.8)',
+            pointColor: '#3b8bba',
+            pointStrokeColor: 'rgba(60,141,188,1)',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data: data,
+            spanGaps: true
+        }]
     }
 
     var accessChartOptions = {

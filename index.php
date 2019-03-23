@@ -70,23 +70,23 @@
                                         <th>Event Type</th>
                                         <th>Object Name</th>
                                         <th>Date</th>
-                                        <th>More</th>
+                                        <th style="text-align: center">More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <?php while ($rowddl = $stmt2->fetch(PDO::FETCH_ASSOC)) { ?>
                                     <tr>
                                         <td>
-                                            <?php echo $row['Type']; ?>
+                                            <?php echo $rowddl['Type']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['Object']?>
+                                            <?php echo $rowddl['Object']?>
                                         </td>
                                         <td>
-                                            <?php echo date('jS \of F Y',time($row['Date']))?></br>
-                                            <?php echo date('h:i:s A',time($row['Date']))?></br>
+                                            <?php echo date('jS \of F Y',strtotime($rowddl['Date']))?></br>
+                                            <?php echo date('h:i:s A',strtotime($rowddl['Date']))?></br>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center">
                                             <a href="#" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
@@ -106,7 +106,66 @@
                         <div class="box-header">
                             <h3 class="box-title">Database Object</h3>
                         </div>
-                        <div class="box-body">Line Chart</div>
+                        <div class="box-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Database Object</th>
+                                        <th>Total</th>
+                                        <th>More</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Table</td>
+                                        <td><?php echo $totalTable['TotalTable'] ?></td>
+                                        <td>
+                                            <a href="/TA2/DBAudit/pages/database-object/db-tables.php"
+                                                class="text-muted">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>View</td>
+                                        <td><?php echo $totalView['TotalView'] ?></td>
+                                        <td>
+                                            <a href="/TA2/DBAudit/pages/database-object/db-views.php"
+                                                class="text-muted">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Function</td>
+                                        <td><?php echo $totalFunction['TotalFunction'] ?></td>
+                                        <td>
+                                            <a href="" class="text-muted">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stored Procedure</td>
+                                        <td><?php echo $totalProcedures['TotalProcedure'] ?></td>
+                                        <td>
+                                            <a href="" class="text-muted">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trigger</td>
+                                        <td><?php echo $totalTrigger['TotalTrigger'] ?></td>
+                                        <td>
+                                            <a href="" class="text-muted">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

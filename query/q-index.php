@@ -56,4 +56,54 @@ while ($row = $stmt3->fetch(PDO::FETCH_ASSOC)) {
     array_push($ddl_type, $row['Type']);
     array_push($ddl_total, $row['Total']);
 }
+
+// Sum of table
+$TotalTableQuery = '
+SELECT 
+    COUNT(ObjectID) as [TotalTable]
+FROM
+    NorthwindTables
+';
+$TotalTable = $conn->query($TotalTableQuery);
+$totalTable = $TotalTable->fetch(PDO::FETCH_ASSOC);
+
+// Sum of view
+$TotalViewQuery = '
+SELECT 
+    COUNT(ObjectID) as [TotalView]
+FROM
+    NorthwindViews
+';
+$TotalView = $conn->query($TotalViewQuery);
+$totalView = $TotalView->fetch(PDO::FETCH_ASSOC);
+
+// Sum of function
+$TotalFunctionQuery = '
+SELECT 
+    COUNT(ObjectID) as [TotalFunction]
+FROM
+    NorthwindFunction
+';
+$TotalFunction = $conn->query($TotalFunctionQuery);
+$totalFunction = $TotalFunction->fetch(PDO::FETCH_ASSOC);
+
+// Sum of stored procedure
+$TotalProcedureQuery = '
+SELECT 
+    COUNT(ObjectID) as [TotalProcedure]
+FROM
+    NorthwindSProcedures
+';
+$TotalProcedure = $conn->query($TotalProcedureQuery);
+$totalProcedures = $TotalProcedure->fetch(PDO::FETCH_ASSOC);
+
+// Sum of trigger
+$TotalTriggerQuery = '
+SELECT 
+    COUNT(ObjectID) as [TotalTrigger]
+FROM
+    NorthwindTriggers
+';
+$TotalTrigger = $conn->query($TotalTriggerQuery);
+$totalTrigger = $TotalTrigger->fetch(PDO::FETCH_ASSOC);
 ?>

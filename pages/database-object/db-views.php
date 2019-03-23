@@ -1,7 +1,7 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
-<?php include $path.'/query/database-object-query/q-db-tables.php'; ?>
+<?php include $path.'/query/database-object-query/q-db-views.php'; ?>
 
 <div class="wrapper">
 
@@ -13,13 +13,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Database Tables
+                Database Views
                 <!-- <small>Optional description</small> -->
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">Database Objects</a></li>
-                <li class="active">Database Tables</li>
+                <li class="active">Database Views</li>
             </ol>
         </section>
 
@@ -30,20 +30,20 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">Database Tables List</h3>
+                            <h3 class="box-title">Database Views List</h3>
                         </div>
                         <div class="box-body">
-                            <table id="TableList" class="table table-bordered table-hover">
+                            <table id="ViewList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Object ID</th>
-                                        <th>Table Name</th>
+                                        <th>View Name</th>
                                         <th>Create Date</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $TableList->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <?php while ($row = $ViewList->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
                                         <td>
                                             <?php echo $row['ObjID']; ?>
@@ -56,7 +56,8 @@
                                             <?php echo date('h:i:s A',strtotime($row['CrDate']))?>
                                         </td>
                                         <td>
-                                            <a href="/TA2/DBAudit/pages/database-object/db-tables-detail.php?table=<?php echo $row['ObjID'] ?>" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-object/db-views-detail.php?view=<?php echo $row['ObjID'] ?>"
+                                                class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
@@ -82,7 +83,6 @@
 
 <?php include $path.'/pages/navbars/required-scripts.php'; ?>
 
-
 <!-- SlimScroll -->
 <script src="/TA2/DBAudit/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -93,7 +93,7 @@
 <script src="/TA2/DBAudit/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
 $(function() {
-    $('#TableList').DataTable({
+    $('#ViewList').DataTable({
         'paging': true,
         'lengthChange': true,
         'searching': true,
