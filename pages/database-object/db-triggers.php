@@ -1,12 +1,12 @@
-<?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
-<?php include $path.'/pages/navbars/head.php'; ?>
+<?php $path = $_SERVER['DOCUMENT_ROOT'] . '/TA2/DBAudit';?>
+<?php include $path . '/pages/navbars/head.php';?>
 
-<?php include $path.'/query/database-object-query/q-db-tables.php'; ?>
+<?php include $path . '/query/database-object-query/q-db-triggers.php';?>
 
 <div class="wrapper">
 
-    <?php include $path.'/pages/navbars/top-navbar.php'; ?>
-    <?php include $path.'/pages/navbars/left-sidebar.php'; ?>
+    <?php include $path . '/pages/navbars/top-navbar.php';?>
+    <?php include $path . '/pages/navbars/left-sidebar.php';?>
 
     <!-- HEADER and BREADCRUMB -->
     <div class="content-wrapper">
@@ -19,7 +19,7 @@
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">Database Objects</a></li>
-                <li class="active">Database Tables</li>
+                <li class="active">Database Trigger</li>
             </ol>
         </section>
 
@@ -30,38 +30,31 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">Database Tables List</h3>
+                            <h3 class="box-title">Database Trigger List</h3>
                         </div>
                         <div class="box-body">
-                            <table id="TableList" class="table table-bordered table-hover">
+                            <table id="triggerList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Object ID</th>
-                                        <th>Table Name</th>
+                                        <th>Trigger Name</th>
                                         <th>Create Date</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $TableList->fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <?php while ($row = $TriggerList->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
+                                        <td><?php echo $row['ObjID'] ?></td>
+                                        <td><?php echo $row['ObjName'] ?></td>
+                                        <td><?php echo date('jS \of F Y h:i:s A',strtotime($row['CrDate']))?>
                                         <td>
-                                            <?php echo $row['ObjID']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['ObjName']?>
-                                        </td>
-                                        <td>
-                                            <?php echo date('jS \of F Y',strtotime($row['CrDate']))?>
-                                            <?php echo date('h:i:s A',strtotime($row['CrDate']))?>
-                                        </td>
-                                        <td>
-                                            <a href="/TA2/DBAudit/pages/database-object/db-tables-detail.php?table=<?php echo $row['ObjID'] ?>" class="text-muted">
+                                            <a href="" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php } ?>
+                                    <?php }?>
                                 </tbody>
                             </table>
                         </div>
@@ -74,14 +67,13 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <?php include $path.'/pages/navbars/footer.php'; ?>
-    <?php include $path.'/pages/navbars/control-sidebar.php'; ?>
+    <?php include $path . '/pages/navbars/footer.php';?>
+    <?php include $path . '/pages/navbars/control-sidebar.php';?>
 
 </div>
 <!-- ./wrapper -->
 
-<?php include $path.'/pages/navbars/required-scripts.php'; ?>
-
+<?php include $path . '/pages/navbars/required-scripts.php';?>
 
 <!-- SlimScroll -->
 <script src="/TA2/DBAudit/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -93,7 +85,7 @@
 <script src="/TA2/DBAudit/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
 $(function() {
-    $('#TableList').DataTable({
+    $('#triggerList').DataTable({
         'paging': true,
         'lengthChange': true,
         'searching': true,
@@ -104,4 +96,4 @@ $(function() {
 })
 </script>
 
-<?php include $path.'/pages/navbars/end.php'; ?>
+<?php include $path . '/pages/navbars/end.php';?>
