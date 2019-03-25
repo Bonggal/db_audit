@@ -54,9 +54,9 @@
                 <ul class="treeview-menu">
                     <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">Database Tables</a></li>
                     <li><a href="/TA2/DBAudit/pages/database-object/db-views.php">Database Views</a></li>
-                    <li><a href="#">Database Functions</a></li>
-                    <li><a href="#">Database Stored Procedures</a></li>
-                    <li><a href="#">Database Triggers</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-functions.php">Database Functions</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-sprocedures.php">Database Stored Procedures</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-triggers.php">Database Triggers</a></li>
                     <li><a href="#">Objects Without Reference</a></li>
                 </ul>
             </li>

@@ -1,7 +1,7 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
-<?php include $path.'/query/database-object-query/q-db-tables.php'; ?>
+<?php include $path.'/query/database-object-query/q-db-sprocedures.php'; ?>
 
 <div class="wrapper">
 
@@ -19,7 +19,7 @@
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">Database Objects</a></li>
-                <li class="active">Database Tables</li>
+                <li class="active">Database Stored Procedures</li>
             </ol>
         </section>
 
@@ -30,20 +30,20 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">Database Tables List</h3>
+                            <h3 class="box-title">Database Stored Procedures List</h3>
                         </div>
                         <div class="box-body">
-                            <table id="TableList" class="table table-bordered table-hover">
+                            <table id="SPList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Object ID</th>
-                                        <th>Table Name</th>
+                                        <th>Stored Procedure Name</th>
                                         <th>Create Date</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $TableList->fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <?php while ($row = $ProcedureList->fetch(PDO::FETCH_ASSOC)) { ?>
                                     <tr>
                                         <td>
                                             <?php echo $row['ObjID']; ?>
@@ -56,7 +56,7 @@
                                             <?php echo date('h:i:s A',strtotime($row['CrDate']))?>
                                         </td>
                                         <td>
-                                            <a href="/TA2/DBAudit/pages/database-object/db-tables-detail.php?table=<?php echo $row['ObjID'] ?>" class="text-muted">
+                                            <a href="" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
@@ -93,7 +93,7 @@
 <script src="/TA2/DBAudit/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
 $(function() {
-    $('#TableList').DataTable({
+    $('#SPList').DataTable({
         'paging': true,
         'lengthChange': true,
         'searching': true,
