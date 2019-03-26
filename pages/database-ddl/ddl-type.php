@@ -1,7 +1,7 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
-<?php include $path.'/query/ddl-query/q-db-users.php'; ?>
+<?php include $path.'/query/ddl-query/q-db-type.php'; ?>
 
 <div class="wrapper">
 
@@ -19,7 +19,7 @@
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">DDL Activity</a></li>
-                <li class="active">DDL Users</li>
+                <li class="active">DDL Types</li>
             </ol>
         </section>
 
@@ -30,7 +30,7 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">DDL Users</h3>
+                            <h3 class="box-title">DDL Types</h3>
                         </div>
                         <div class="box-body">
                             <canvas id="ddlUserChart" style="height:250px"></canvas>
@@ -43,29 +43,33 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">DDL Users List</h3>
+                            <h3 class="box-title"></h3>
                         </div>
                         <div class="box-body">
                             <table id="ddlUsrList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Date</th>
+                                        <th>DDL Type</th>
+                                        <th>Object Name</th>
                                         <th>Login Name</th>
-                                        <th>Program Name</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $UserList->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <?php while ($row = $TypeList->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
                                         <td>
                                             <?php echo date('jS \of F Y h:i:s A',strtotime($row['Date']))?>
                                         </td>
                                         <td>
-                                            <?php echo $row['Name']?>
+                                            <?php echo $row['Type']?>
                                         </td>
                                         <td>
-                                            <?php echo $row['Program']?>
+                                            <?php echo $row['Object']?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['Name']?>
                                         </td>
                                         <td>
                                             <a href="" class="text-muted">
@@ -116,6 +120,6 @@ $(function() {
 })
 </script>
 
-<?php include $path.'/charts/ddl-charts/user-charts.php'; ?>
+<?php include $path.'/charts/ddl-charts/type-charts.php'; ?>
 
 <?php include $path.'/pages/navbars/end.php'; ?>

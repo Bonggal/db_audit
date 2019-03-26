@@ -6,8 +6,8 @@ include $path . "/connection/connection.php";
 $UserListQuery = '
 SELECT 
 	EventDate as [Date],
-	EventType as [Type],
-	LoginName as [Name]
+	LoginName as [Name],
+	ProgramName as [Program]
 FROM 
 	NorthwindDDLActivity
 ORDER BY [Name] ASC
