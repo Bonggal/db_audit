@@ -53,7 +53,7 @@
                         </div>
                         <div class="box-body">
                             <div class="chart-responsive">
-                                <canvas id="ddlTypeChart" height="300"></canvas>
+                                <canvas id="ddlTypeChart" height="350"></canvas>
                             </div>
                         </div>
                     </div>
