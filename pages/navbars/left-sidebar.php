@@ -68,7 +68,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-activity.php">DDL Activities</a></li>
-                    <li><a href="#">DDL Users</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-users.php">DDL Users</a></li>
                     <li><a href="#">DDL Types</a></li>
                     <li><a href="#">DDL Objects</a></li>
 
