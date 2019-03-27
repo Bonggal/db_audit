@@ -19,4 +19,18 @@ WHERE
 $TableDetails = $conn->query($TableDetailQuery);
 
 $row = $TableDetails->fetch(PDO::FETCH_ASSOC);
+
+// Table Definition  Query
+$TableDefQuery = '
+SELECT
+	col as [Column],
+	datatype as [Type],
+	length as [Length],
+	Nullable as [Null]
+FROM 
+	table_definition
+WHERE 
+	id = '.$tableID;
+	
+$TableDef = $conn->query($TableDefQuery);
 ?>

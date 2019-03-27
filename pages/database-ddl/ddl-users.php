@@ -18,7 +18,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">DDL Activity</a></li>
+                <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-users.php">DDL Activity</a></li>
                 <li class="active">DDL Users</li>
             </ol>
         </section>

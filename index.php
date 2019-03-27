@@ -140,7 +140,7 @@
                                         <td>Function</td>
                                         <td><?php echo $totalFunction['TotalFunction'] ?></td>
                                         <td>
-                                            <a href="" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-object/db-functions.php" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
@@ -149,7 +149,7 @@
                                         <td>Stored Procedure</td>
                                         <td><?php echo $totalProcedures['TotalProcedure'] ?></td>
                                         <td>
-                                            <a href="" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-object/db-sprocedures.php" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
@@ -158,7 +158,7 @@
                                         <td>Trigger</td>
                                         <td><?php echo $totalTrigger['TotalTrigger'] ?></td>
                                         <td>
-                                            <a href="" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-object/db-triggers.php" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>

@@ -35,50 +35,80 @@
                             <h3 class="box-title">Database Table Information</h3>
                         </div>
                         <div class="box-body">
-                            <div class="row">
-                                <div class="col-xs-8">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tr>
-                                                <th style="width:35%">Object ID</th>
-                                                <td>: <?php echo $row['ObjID']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Object Type</th>
-                                                <td>: <?php echo $row['ObjType']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Table Name</th>
-                                                <td>: <?php echo $row['ObjName']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Object Schema</th>
-                                                <td>: <?php echo $row['ObjSchema']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Create Date</th>
-                                                <td>: <?php echo date('jS \of F Y - h:i:s A',strtotime($row['CrDate'])); ?>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Last Modified Date</th>
-                                                <td>: <?php echo date('jS \of F Y - h:i:s A',strtotime($row['ModDate'])); ?>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-header">
-                            <h3 class="box-title">Table Definition</h3>
-                        </div>
-                        <div class="box-body">
-                            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;font-weight: 600;">
-                            </p>
+                            <table class="table">
+                                <tr>
+                                    <th style="width:35%">Object ID</th>
+                                    <td>: <?php echo $row['ObjID']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Object Type</th>
+                                    <td>: <?php echo $row['ObjType']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Table Name</th>
+                                    <td>: <?php echo $row['ObjName']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Object Schema</th>
+                                    <td>: <?php echo $row['ObjSchema']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Create Date</th>
+                                    <td>:
+                                        <?php echo date('jS \of F Y - h:i:s A',strtotime($row['CrDate'])); ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Last Modified Date</th>
+                                    <td>:
+                                        <?php echo date('jS \of F Y - h:i:s A',strtotime($row['ModDate'])); ?>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box ">
+                        <div class="box-header">
+                            <h3 class="box-title">Table's Columns</h3>
+                        </div>
+                        <div class="box-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Column</th>
+                                        <th>Datatype</th>
+                                        <th>Length</th>
+                                        <th>Nullable</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while ($row = $TableDef->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $row['Column']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['Type']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['Length']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['Null']; ?>
+                                        </td>
+                                    <tr>
+                                        <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </section>
         <!-- /.content -->
