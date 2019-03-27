@@ -1,7 +1,7 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
-<?php include $path.'/query/ddl-query/q-db-activities.php'; ?>
+<?php include $path.'/query/ddl-query/q-db-type.php'; ?>
 
 <div class="wrapper">
 
@@ -18,8 +18,8 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-activity.php">DDL Activity</a></li>
-                <li class="active">DDL Activities</li>
+                <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-type.php">DDL Activity</a></li>
+                <li class="active">DDL Types</li>
             </ol>
         </section>
 
@@ -30,10 +30,10 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">DDL Activities</h3>
+                            <h3 class="box-title">DDL Types</h3>
                         </div>
                         <div class="box-body">
-                            <canvas id="ddlActivityChart" style="height:250px"></canvas>
+                            <canvas id="ddlUserChart" style="height:250px"></canvas>
                         </div>
                     </div>
                 </div>
@@ -43,26 +43,30 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">DDL Activities List</h3>
+                            <h3 class="box-title"></h3>
                         </div>
                         <div class="box-body">
-                            <table id="ddlActList" class="table table-bordered table-hover">
+                            <table id="ddlUsrList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Date</th>
-                                        <th>Activity Type</th>
+                                        <th>DDL Type</th>
+                                        <th>Object Name</th>
                                         <th>Login Name</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $ActivityList->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <?php while ($row = $TypeList->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
                                         <td>
                                             <?php echo date('jS \of F Y h:i:s A',strtotime($row['Date']))?>
                                         </td>
                                         <td>
                                             <?php echo $row['Type']?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['Object']?>
                                         </td>
                                         <td>
                                             <?php echo $row['Name']?>
@@ -105,7 +109,7 @@
 <script src="/TA2/DBAudit/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
 $(function() {
-    $('#ddlActList').DataTable({
+    $('#ddlUsrList').DataTable({
         'paging': true,
         'lengthChange': true,
         'searching': true,
@@ -116,6 +120,6 @@ $(function() {
 })
 </script>
 
-<?php include $path.'/charts/ddl-charts/activities-charts.php'; ?>
+<?php include $path.'/charts/ddl-charts/type-charts.php'; ?>
 
 <?php include $path.'/pages/navbars/end.php'; ?>

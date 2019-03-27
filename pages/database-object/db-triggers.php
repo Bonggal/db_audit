@@ -49,7 +49,7 @@
                                         <td><?php echo $row['ObjName'] ?></td>
                                         <td><?php echo date('jS \of F Y h:i:s A',strtotime($row['CrDate']))?>
                                         <td>
-                                            <a href="" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-object/db-triggers-detail.php?trigger=<?php echo $row['ObjID'] ?>" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>

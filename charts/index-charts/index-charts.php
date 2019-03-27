@@ -26,7 +26,7 @@ $(function() {
         labels: label,
         datasets: [{
             label: 'Succeed Access',
-            fillColor: 'rgba(60,141,188,0.9)',
+            fillColor: 'rgba(60,141,188,0.3)',
             strokeColor: 'rgba(60,141,188,0.8)',
             pointColor: '#3b8bba',
             pointStrokeColor: 'rgba(60,141,188,1)',
@@ -55,7 +55,7 @@ $(function() {
         //Number - Tension of the bezier curve between points
         bezierCurveTension: 0.3,
         //Boolean - Whether to show a dot for each point
-        pointDot: false,
+        pointDot: true,
         //Number - Radius of each point dot in pixels
         pointDotRadius: 4,
         //Number - Pixel width of point dot stroke
@@ -93,7 +93,7 @@ $(function() {
     for (var i = 0; i < ddl_data.length; i++) {
         var x = {
             value: ddl_data[i],
-            color: 'rgba(0,' + (255 / ddl_data.length) * i + ',255,0.7)',
+            color: 'rgba('+((100 / ddl_data.length) * i)+',' + (255 / ddl_data.length) * i + ','+(255-((255 / ddl_data.length) * i))+',0.8)',
             label: ddl_label[i]
         };
         datap.push(x);

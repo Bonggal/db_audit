@@ -35,41 +35,38 @@
                             <h3 class="box-title">Database View Information</h3>
                         </div>
                         <div class="box-body">
-                            <div class="row">
-                                <div class="col-xs-8">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tr>
-                                                <th style="width:35%">Object ID</th>
-                                                <td>: <?php echo $rowView['ObjID']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Object Type</th>
-                                                <td>: <?php echo $rowView['ObjType']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>View Name</th>
-                                                <td>: <?php echo $rowView['ObjName']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Object Schema</th>
-                                                <td>: <?php echo $rowView['ObjSchema']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Create Date</th>
-                                                <td>:
-                                                    <?php echo date('jS \of F Y - h:i:s A',strtotime($rowView['CrDate'])); ?>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Last Modified Date</th>
-                                                <td>:
-                                                    <?php echo date('jS \of F Y - h:i:s A',strtotime($rowView['ModDate'])); ?>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <th style="width:35%">Object ID</th>
+                                        <td>: <?php echo $rowView['ObjID']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Object Type</th>
+                                        <td>: <?php echo $rowView['ObjType']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>View Name</th>
+                                        <td>: <?php echo $rowView['ObjName']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Object Schema</th>
+                                        <td>: <?php echo $rowView['ObjSchema']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Create Date</th>
+                                        <td>:
+                                            <?php echo date('jS \of F Y - h:i:s A',strtotime($rowView['CrDate'])); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Modified Date</th>
+                                        <td>:
+                                            <?php echo date('jS \of F Y - h:i:s A',strtotime($rowView['ModDate'])); ?>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                         <div class="box-header">
@@ -83,6 +80,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box ">
@@ -100,7 +98,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($rowDepend = $ViewDependency->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <?php if($rowNum['Num'] <= 0){ ?>
+                                    <div class="callout callout-danger">
+                                        <h4>No Database Object Found!</h4>
+
+                                        <p>The object's name may have been changed or deleted.</p>
+                                    </div>
+                                    <?php }else{?>
+                                    <?php while ($rowDepend=$ViewDependency->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
                                         <td><?php echo $rowDepend['DepID']; ?></td>
                                         <td><?php echo $rowDepend['Dep']; ?></td>
@@ -111,13 +116,14 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php } ?>
+                                    <?php }} ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+
         </section> <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -134,6 +140,22 @@
 <script src="/TA2/DBAudit/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/TA2/DBAudit/bower_components/fastclick/lib/fastclick.js"></script>
+
+<!-- DATA TABLES -->
+<script src="/TA2/DBAudit/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/TA2/DBAudit/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+$(function() {
+    $('#ViewDependency').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': false,
+        'ordering': false,
+        'info': false,
+        'autoWidth': false
+    })
+})
+</script>
 
 
 <?php include $path.'/pages/navbars/end.php'; ?>

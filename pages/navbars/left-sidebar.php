@@ -41,23 +41,31 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/TA2/DBAudit/pages/database-access/database-access.php">Database Access</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-access/database-usage.php">Account Usage</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-access/database-access.php"><i class="fa fa-circle-o"></i>Database Access</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-access/database-usage.php"><i class="fa fa-circle-o"></i>Account Usage</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-list-alt"></i> <span>Database Objects</span>
+                <a href="#"><i class="fa fa-list-alt"></i><span>Database Objects</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php">Database Tables</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-object/db-views.php">Database Views</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-object/db-functions.php">Database Functions</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-object/db-sprocedures.php">Database Stored Procedures</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-object/db-triggers.php">Database Triggers</a></li>
-                    <li><a href="#">Objects Without Reference</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-tables.php"><i class="fa fa-circle-o"></i>Database Tables</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-views.php"><i class="fa fa-circle-o"></i>Database Views
+                            <span class="pull-right-container">
+                                <small class="label pull-right bg-red">1</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-functions.php"><i class="fa fa-circle-o"></i>Database Functions</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-sprocedures.php"><i class="fa fa-circle-o"></i>Database Stored Procedures
+                    </a>
+                    </li>
+                    <li><a href="/TA2/DBAudit/pages/database-object/db-triggers.php"><i class="fa fa-circle-o"></i>Database Triggers</a></li>
+
+                    <!-- <li><a href="/TA2/DBAudit/pages/database-object/db-reference.php"><i class="fa fa-circle-o"></i>Objects Without Reference</a></li> -->
                 </ul>
             </li>
             <li class="treeview">
@@ -67,10 +75,20 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-activity.php">DDL Activities</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-users.php">DDL Users</a></li>
-                    <li><a href="#">DDL Types</a></li>
-                    <li><a href="#">DDL Objects</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-activity.php"><i class="fa fa-circle-o"></i>DDL Activities</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-users.php"><i class="fa fa-circle-o"></i>DDL Users</a></li>
+                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-type.php"><i class="fa fa-circle-o"></i>DDL Types</a></li>
+
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-database"></i> <span>DML Activity</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/TA2/DBAudit/pages/database-dml/dml-activity.php"><i class="fa fa-circle-o"></i>DML Activities</a></li>
 
                 </ul>
             </li>

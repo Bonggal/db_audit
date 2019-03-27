@@ -33,7 +33,19 @@ FROM
 WHERE 
 	ObjectID = '.$viewID;
 	
-// echo $ViewDependencyQuery;
 $ViewDependency = $conn->query($ViewDependencyQuery);
+
+// Count number of dependency object
+$DepNumQuery = '
+SELECT
+	COUNT(ObjectID) as [Num]
+FROM 
+	ObjectDependencyView
+WHERE 
+	[ObjectID] = '.$viewID;
+
+$DepNum = $conn->query($DepNumQuery);
+
+$rowNum = $DepNum->fetch(PDO::FETCH_ASSOC);
 
 ?>

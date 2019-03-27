@@ -44,7 +44,11 @@
                                 </thead>
                                 <tbody>
                                     <?php while ($row = $ViewList->fetch(PDO::FETCH_ASSOC)) {?>
+                                    <?php if($row['Status'] == 'No'){ ?>
+                                    <tr style="background-color: #f56954;">
+                                        <?php }else{ ?>
                                     <tr>
+                                        <?php } ?>
                                         <td>
                                             <?php echo $row['ObjID']; ?>
                                         </td>
