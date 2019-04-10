@@ -1,6 +1,7 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
+<?php include $path.'/query/database-error-query/q-db-loginerror.php'; ?>
 <div class="wrapper">
 
     <?php include $path.'/pages/navbars/top-navbar.php'; ?>
@@ -11,57 +12,48 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Database Access
-                <!-- <small>Optional description</small> -->
+                Database Error
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li><a href="/TA2/DBAudit/pages/database-access/database-access.php">Database Access</a></li>
-                <li class="active">Database Usage</li>
+                <li><a href="/TA2/DBAudit/pages/database-error/failed-login.php">Database Error</a></li>
+                <li class='active'>Failed Login</a></li>
+
             </ol>
         </section>
 
         <!-- Main content -->
         <section class="content container-fluid">
-
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">Database Login Chart</h3>
+                            <h3 class="box-title">Login Failed List</h3>
                         </div>
                         <div class="box-body">
-                            <div class="chart">
-                                <canvas id="userChart" style="height:230px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="box ">
-                        <div class="box-header">
-                            <h3 class="box-title">Database Unusual Access List</h3>
-                        </div>
-                        <div class="box-body">
-                            <table id="" class="table table-bordered table-hover">
+                            <table id="ViewList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Login Name</th>
-                                        <th>Total of Access</th>
-                                        <th>Last Access Date</th>
+                                        <th>Error Message</th>
+                                        <th>Total of Error</th>
+                                        <th>Last Error Date</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php while ($row = $Error->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><?php echo $row['Message'] ?></td>
+                                        <td><?php echo $row['Total'] ?></td>
+                                        <td><?php echo $row['Date'] ?></td>
+                                        <td>
+                                            <a href="/TA2/DBAudit/pages/database-user/failed-login-detail.php?id"
+                                                class="text-muted">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -81,14 +73,4 @@
 <!-- ./wrapper -->
 
 <?php include $path.'/pages/navbars/required-scripts.php'; ?>
-
-<!-- SlimScroll -->
-<script src="/TA2/DBAudit/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/TA2/DBAudit/bower_components/fastclick/lib/fastclick.js"></script>
-
-<?php include $path.'/query/database-access-query/q-db-usage.php'; ?>
-
-<?php include $path.'/charts/db-access-charts/usage-charts.php'; ?>
-
 <?php include $path.'/pages/navbars/end.php'; ?>

@@ -47,7 +47,7 @@
                                         <td><?php echo $row['User'] ?></td>
                                         <td><?php echo $row['UserType'] ?></td>
                                         <td>
-                                            <a href="" class="text-muted">
+                                            <a href="/TA2/DBAudit/pages/database-user/privilege-detail.php?perm=<?php echo $row['PermissionType'] ?>" class="text-muted">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                         </td>
