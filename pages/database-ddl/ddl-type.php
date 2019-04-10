@@ -49,10 +49,11 @@
                             <table id="ddlUsrList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
                                         <th>DDL Type</th>
-                                        <th>Object Name</th>
-                                        <th>Login Name</th>
+                                        <th>Number of DDL Activities</th>
+                                        <th>Number of Object</th>
+                                        <th>Number of User</th>
+                                        <th>Latest DDL Activities</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
@@ -60,16 +61,19 @@
                                     <?php while ($row = $TypeList->fetch(PDO::FETCH_ASSOC)) {?>
                                     <tr>
                                         <td>
-                                            <?php echo date('jS \of F Y h:i:s A',strtotime($row['Date']))?>
+                                            <?php echo $row['Type']?>
                                         </td>
                                         <td>
-                                            <?php echo $row['Type']?>
+                                            <?php echo $row['Total']?>
                                         </td>
                                         <td>
                                             <?php echo $row['Object']?>
                                         </td>
                                         <td>
                                             <?php echo $row['Name']?>
+                                        </td>
+                                        <td>
+                                            <?php echo date('jS \of F Y h:i:s A',strtotime($row['Date']))?>
                                         </td>
                                         <td>
                                             <a href="" class="text-muted">

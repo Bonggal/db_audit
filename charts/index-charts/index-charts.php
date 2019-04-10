@@ -42,6 +42,7 @@ $(function() {
         showScale: true,
         //Boolean - Whether grid lines are shown across the chart
         scaleShowGridLines: true,
+        // scaleShowLabels: true,
         //String - Colour of the grid lines
         scaleGridLineColor: 'rgba(0,0,0,.05)',
         //Number - Width of the grid lines
@@ -74,6 +75,7 @@ $(function() {
         maintainAspectRatio: false,
         //Boolean - whether to make the chart responsive to window resizing
         responsive: true,
+        scaleShowValues: true,
     }
 
     //Create the line chart
@@ -93,7 +95,8 @@ $(function() {
     for (var i = 0; i < ddl_data.length; i++) {
         var x = {
             value: ddl_data[i],
-            color: 'rgba('+((100 / ddl_data.length) * i)+',' + (255 / ddl_data.length) * i + ','+(255-((255 / ddl_data.length) * i))+',0.8)',
+            color: 'rgba(' + ((100 / ddl_data.length) * i) + ',' + (255 / ddl_data.length) * i + ',' + (
+                255 - ((255 / ddl_data.length) * i)) + ',0.8)',
             label: ddl_label[i]
         };
         datap.push(x);
@@ -133,5 +136,28 @@ $(function() {
     // - END PIE CHART -
     // -----------------
 
+
+    var testCanvas = $('#testChart').get(0).getContext('2d');
+
+    var testChart = new Chart(testCanvas);
+
+    var testChartData = {
+        labels: label,
+        datasets: [{
+            label: 'Succeed Access',
+            fillColor: 'rgba(60,141,188,0.3)',
+            strokeColor: 'rgba(60,141,188,0.8)',
+            pointColor: '#3b8bba',
+            pointStrokeColor: 'rgba(60,141,188,1)',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data: data,
+            spanGaps: true
+        }]
+    }
+
+    // ---------------
+    // END OF FUNCTION
+    // ---------------
 })
 </script>
