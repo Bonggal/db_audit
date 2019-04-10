@@ -1,6 +1,8 @@
 <?php $path = $_SERVER['DOCUMENT_ROOT'].'/TA2/DBAudit'; ?>
 <?php include $path.'/pages/navbars/head.php'; ?>
 
+<?php include $path.'/query/database-access-query/q-db-usage.php'; ?>
+
 <div class="wrapper">
 
     <?php include $path.'/pages/navbars/top-navbar.php'; ?>
@@ -17,7 +19,7 @@
             <ol class="breadcrumb">
                 <li><a href="/TA2/DBAudit/index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><a href="/TA2/DBAudit/pages/database-access/database-access.php">Database Access</a></li>
-                <li class="active">Database Usage</li>
+                <li class="active">Database Unusual Access</li>
             </ol>
         </section>
 
@@ -28,11 +30,11 @@
                 <div class="col-xs-12">
                     <div class="box ">
                         <div class="box-header">
-                            <h3 class="box-title">Database Login Chart</h3>
+                            <h3 class="box-title">Database Access Chart</h3>
                         </div>
                         <div class="box-body">
                             <div class="chart">
-                                <canvas id="userChart" style="height:230px"></canvas>
+                                <canvas id="accessChart" style="height:230px"></canvas>
                             </div>
                         </div>
                     </div>
@@ -49,15 +51,13 @@
                             <table id="" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Login Name</th>
+                                        <th>Access Date</th>
                                         <th>Total of Access</th>
-                                        <th>Last Access Date</th>
                                         <th>More</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -87,8 +87,6 @@
 <!-- FastClick -->
 <script src="/TA2/DBAudit/bower_components/fastclick/lib/fastclick.js"></script>
 
-<?php include $path.'/query/database-access-query/q-db-usage.php'; ?>
-
-<?php include $path.'/charts/db-access-charts/usage-charts.php'; ?>
+<?php //include $path.'/charts/db-access-charts/usage-charts.php'; ?>
 
 <?php include $path.'/pages/navbars/end.php'; ?>

@@ -115,7 +115,7 @@
                             Users</a></li>
                     <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-type.php"><i class="fa fa-circle-o"></i>DDL
                             Types</a></li>
-                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-type.php"><i class="fa fa-circle-o"></i>Permission
+                    <li><a href="/TA2/DBAudit/pages/database-ddl/ddl-change.php"><i class="fa fa-circle-o"></i>Permission
                             Change</a></li>
 
                 </ul>

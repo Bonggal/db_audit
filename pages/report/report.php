@@ -67,7 +67,6 @@
                         <?php } ?>
                     </dl>
 
-                    <hr>
                     <h3>Observation No. 2: Database Object</h3>
                     <dl>
                         <dt>Database Dependencies</dt>
@@ -110,7 +109,6 @@
                         <?php } ?>
                     </dl>
                     
-                    <hr>
                     <h3>Observation No. 3: Database Data-Definition Languange (DDL) Activity</h3>
                     <dl>
                         <dt>Most DDL Activity</dt>
@@ -121,6 +119,35 @@
                     <h4>Recommendation</h4>
                     <dl>
                         <dt>Most DDL Activity</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <h3>Observation No. 4: Database Error</h3>
+                    <dl>
+                        <dt>Failed Login</dt>
+                        <dd>
+                        </dd>
+                        <dt>Syntax Error</dt>
+                        <dd>
+                        </dd>
+                    </dl>
+                    <h4>Recommendation</h4>
+                    <dl>
+                        <dt>Failed Login</dt>
+                        <dd></dd>
+                        <dt>Syntax Error</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <h3>Observation No. 5: Database User</h3>
+                    <dl>
+                        <dt>Inactive User</dt>
+                        <dd>
+                        </dd>
+                    </dl>
+                    <h4>Recommendation</h4>
+                    <dl>
+                        <dt>Inactive User</dt>
                         <dd></dd>
                     </dl>
 
