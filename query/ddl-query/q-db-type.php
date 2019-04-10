@@ -5,13 +5,14 @@ include $path . "/connection/connection.php";
 // DDL Type List Query
 $TypeListQuery = '
 SELECT 
-	EventDate as [Date],
 	EventType as [Type],
-	ObjectName as [Object],
-	LoginName as [Name]
+	Count(EventType) as [Total],
+	MAX(EventDate) as [Date],
+	COUNT(DISTINCT(ObjectName)) as [Object],
+	COUNT(DISTINCT(LoginName)) as [Name]
 FROM 
 	NorthwindDDLActivity
-ORDER BY [Date] ASC
+GROUP BY EventType
 ';
 $TypeList = $conn->query($TypeListQuery);
 

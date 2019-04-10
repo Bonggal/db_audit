@@ -5,11 +5,12 @@ include $path . "/connection/connection.php";
 // DDL User List Query
 $UserListQuery = '
 SELECT 
-	EventDate as [Date],
 	LoginName as [Name],
-	ProgramName as [Program]
+	MAX(EventDate) as [Date],
+	COUNT(DISTINCT(ProgramName)) as [Program]
 FROM 
 	NorthwindDDLActivity
+GROUP BY [LoginName]
 ORDER BY [Name] ASC
 ';
 $UserList = $conn->query($UserListQuery);
