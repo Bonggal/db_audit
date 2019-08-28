@@ -4,4 +4,4 @@ This is an interface for automatic database audit web application with Microsoft
 
 In order to make all the links works, please put all the files in folder named "TA2/DBAudit/".</br>
 You can download Microsoft SQL Server Driver for PHP from https://github.com/Bonggal/php_mssql or https://www.microsoft.com/en-us/download/details.aspx?id=20098.</br>
-The database is still on progress... </br>
+The database are: Northwind.bak (Audited database) and DatabaseAudit.bak</br>
